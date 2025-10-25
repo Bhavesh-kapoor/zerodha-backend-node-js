@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
- const HoldingsSchema = new Schema({
+const OrderSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -9,22 +9,13 @@ import { Schema } from "mongoose";
     type: Number,
     required: true,
   },
-  avg: {
-    type: Number,
-    required: true,
-  },
   price: {
     type: Number,
     required: true,
   },
-
-  net: {
-    type: String,
-    required: false,
-  },
-  day: {
+  mode: {
     type: String,
     required: true,
   },
 });
-export default HoldingsSchema;
+module.exports = { OrderSchema };
