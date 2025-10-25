@@ -1,4 +1,5 @@
 import { Position } from "../models/Position.js";
+import { errorResponse, successResponse } from "../utils/response.js";
 
 export function fakeData(req, res) {
   let PositionData = [
@@ -268,4 +269,18 @@ export function fakeData(req, res) {
     newPosition.save();
   });
   res.send("Postions Data Done!");
+}
+
+export async function get(req, res) {
+  try {
+    const positionData = await Position.find();
+    successResponse(
+      res,
+      positionData,
+      "Position Data  fetch successfully!",
+      200
+    );
+  } catch (error) {
+    errorResponse(res, error, 500);
+  }
 }

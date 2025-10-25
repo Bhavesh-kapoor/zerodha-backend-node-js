@@ -1,7 +1,8 @@
 import express from "express";
-import { fakeData } from "../controllers/HoldingController.js";
+import { fakeData, get } from "../controllers/HoldingController.js";
 const router = express.Router();
 
-router.get("/holdings/fake",fakeData);
+router.get("/fake",fakeData);
+router.get('/',get);
 
 export default router;

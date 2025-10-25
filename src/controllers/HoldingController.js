@@ -1,4 +1,5 @@
 import { HoldingsModel } from "../models/Holdings.js";
+import { errorResponse, successResponse } from "../utils/response.js";
 
 export function fakeData(req, res) {
   let holdingData = [
@@ -112,4 +113,19 @@ export function fakeData(req, res) {
     newHolding.save();
   });
   res.send("Data saved successfully!");
+}
+
+export async function get(req, res) {
+ 
+  try {
+      const holdingData = await HoldingsModel.find();
+      successResponse(
+        res,
+        holdingData,
+        "Holding Data  fetch successfully!",
+        200
+      );
+    } catch (error) {
+      errorResponse(res, error, 500);
+    }
 }
