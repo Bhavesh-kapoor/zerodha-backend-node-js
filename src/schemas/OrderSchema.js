@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-const OrderSchema = new Schema({
+ const OrderSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -18,4 +18,5 @@ const OrderSchema = new Schema({
     required: true,
   },
 });
-module.exports = { OrderSchema };
+
+export default OrderSchema;
