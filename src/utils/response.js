@@ -12,6 +12,6 @@ export function errorResponse(res, error, statusCode = 500) {
     success: false,
     status: statusCode,
     message: error.message || "An unexpected error occurred",
-    error: error,
+    error: error?.errors,
   });
 }

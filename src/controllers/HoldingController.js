@@ -119,7 +119,7 @@ export async function get(req, res) {
  
   try {
       const holdingData = await HoldingsModel.find();
-      successResponse(
+     return  successResponse(
         res,
         holdingData,
         "Holding Data  fetch successfully!",

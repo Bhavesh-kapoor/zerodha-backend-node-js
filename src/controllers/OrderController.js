@@ -22,8 +22,8 @@ export async function store(req, res) {
       mode: mode,
     });
     let data = await OrderData.save();
-    successResponse(res, data, `Order ${mode} successfully `, 201);
+   return successResponse(res, data, `Order ${mode} successfully `, 201);
   } catch (error) {
-    errorResponse(res, error, 500);
+    return errorResponse(res, error, 500);
   }
 }
